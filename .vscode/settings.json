@@ -1,0 +1,34 @@
+{
+    "go.buildFlags": [],
+    "go.toolsEnvVars": {},
+    "go.useLanguageServer": true,
+    "go.alternateTools": {},
+    "go.gopath": "/Users/tianchongchao/go",
+    "go.goroot": "/usr/local/go",
+    "go.formatTool": "goimports",
+    "go.delveConfig": {
+        "debugAdapter": "dlv-dap",
+        "showGlobalVariables": true
+    },
+    "go.testFlags": ["-v"],
+    "go.toolsManagement.autoUpdate": true,
+    "go.enableCodeLens": {
+        "references": true,
+        "runtest": true
+    },
+    "go.editorContextMenuCommands": {
+        "toggleTestFile": true,
+        "addTags": true,
+        "removeTags": true,
+        "fillStruct": true,
+        "testAtCursor": true,
+        "testFile": true,
+        "testPackage": true,
+        "generateTestForFunction": true,
+        "generateTestForFile": true,
+        "generateTestForPackage": true,
+        "addImport": true,
+        "testCoverage": true,
+        "playground": true
+    }
+}

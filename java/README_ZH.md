@@ -29,6 +29,11 @@
     *   **目标**: 掌握使用Java集合来存储和操作一组对象的基本方法，为处理更复杂的数据打下基础。
     *   **示例**: `ArrayList` 和 `LinkedList` 的创建、数据操作和遍历；`HashMap` 和 `TreeMap` 的键值对存储与检索；`HashSet` 的元素唯一性演示及用于列表去重。
 
+6.  **[Spring Boot 知识要点 (SpringBoot_Essentials.md)](./SpringBoot_Essentials.md)**
+    *   **内容**: 总结了 Spring Boot 的核心概念、主要特性（自动配置、起步依赖、Actuator）、常用功能模块（Web开发、数据访问、配置管理、安全、测试等）、项目结构、关键文件以及一些开发技巧和最佳实践。
+    *   **目标**: 快速了解 Spring Boot 的主要组成部分和优势，为进一步学习和使用 Spring Boot 构建应用程序打下基础。
+    *   **备注**: 这是一个 Markdown (.md) 文件，主要提供概念性总结和指引，而非可直接运行的Java代码示例。
+
 ---
 
 祝您在Java的学习旅程中一切顺利！

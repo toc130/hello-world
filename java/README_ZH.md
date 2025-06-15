@@ -34,6 +34,11 @@
     *   **目标**: 快速了解 Spring Boot 的主要组成部分和优势，为进一步学习和使用 Spring Boot 构建应用程序打下基础。
     *   **备注**: 这是一个 Markdown (.md) 文件，主要提供概念性总结和指引，而非可直接运行的Java代码示例。
 
+7.  **[Hutool 工具库知识要点 (Hutool_Essentials.md)](./Hutool_Essentials.md)**
+    *   **内容**: 介绍了 Hutool 这个Java工具类库的核心概念、优势、引入方式，并总结了其常用模块（如core, crypto, http, io, json等）的关键功能和使用建议。
+    *   **目标**: 帮助开发者了解并快速上手使用 Hutool 来简化日常Java开发，提高效率。
+    *   **备注**: 这是一个 Markdown (.md) 文件，主要提供概念性总结和指引。
+
 ---
 
 祝您在Java的学习旅程中一切顺利！

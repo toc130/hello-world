@@ -1,0 +1,23 @@
+# dhcpd.conf.template
+#
+# DHCP Server Configuration file.
+#   see /usr/share/doc/dhcp*/dhcpd.conf.example
+#   see dhcpd.conf(5) man page
+#
+ddns-update-style none;
+
+option domain-name "example.org";
+option domain-name-servers ns1.example.org, ns2.example.org;
+
+default-lease-time 600;
+max-lease-time 7200;
+
+log-facility local7;
+
+subnet {{SUBNET}} netmask {{NETMASK}} {
+  range {{RANGE_START}} {{RANGE_END}};
+  option routers {{ROUTERS}};
+  option broadcast-address {{BROADCAST_ADDRESS}};
+  next-server {{TFTP_SERVER_IP}};
+  filename "pxelinux.0";
+}

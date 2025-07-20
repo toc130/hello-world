@@ -1,0 +1,20 @@
+DEFAULT menu.c32
+PROMPT 0
+TIMEOUT 300
+ONTIMEOUT local
+
+MENU TITLE PXE Boot Menu
+
+LABEL local
+    MENU LABEL Boot from local drive
+    LOCALBOOT 0
+
+LABEL centos7
+    MENU LABEL Install CentOS 7
+    KERNEL /os_images/centos7/vmlinuz
+    APPEND initrd=/os_images/centos7/initrd.img inst.ks=http://{{WEB_SERVER_IP}}/os_images/centos7/ks.cfg
+
+LABEL ubuntu20.04
+    MENU LABEL Install Ubuntu 20.04
+    KERNEL /os_images/ubuntu20.04/vmlinuz
+    APPEND initrd=/os_images/ubuntu20.04/initrd.gz auto=true priority=critical url=http://{{WEB_SERVER_IP}}/os_images/ubuntu20.04/preseed.cfg

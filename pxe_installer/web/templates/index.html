@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PXE Installer Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">PXE Host Management</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h4>Add New Host</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('add_host') }}" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="mac">MAC Address</label>
+                            <input type="text" class="form-control" id="mac" name="mac" placeholder="e.g., aa:bb:cc:dd:ee:ff" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="os">Operating System</label>
+                            <select id="os" name="os" class="form-control" required>
+                                <option value="" selected disabled>Choose...</option>
+                                <option value="centos7">CentOS 7</option>
+                                <option value="ubuntu20.04">Ubuntu 20.04</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2 align-self-end">
+                            <button type="submit" class="btn btn-primary btn-block">Add Host</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-5">
+            <div class="card-header">
+                <h4>Registered Hosts</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>MAC Address</th>
+                            <th>Assigned OS</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for host in hosts %}
+                        <tr>
+                            <td>{{ host.mac }}</td>
+                            <td>{{ host.os }}</td>
+                            <td>
+                                <form action="{{ url_for('remove_host') }}" method="POST" style="display:inline;">
+                                    <input type="hidden" name="mac" value="{{ host.mac }}">
+                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="3" class="text-center">No hosts registered.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
